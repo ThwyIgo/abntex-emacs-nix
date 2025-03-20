@@ -31,7 +31,7 @@
 (use-package ispell
   :custom
   (ispell-program-name "aspell")
-  (ispell-dictionary "english") ; brasileiro for pt-BR
+  (ispell-dictionary "brasileiro") ; or english
   (ispell-dictionary-alist (ispell-find-aspell-dictionaries))
   )
 (use-package flyspell
@@ -42,12 +42,5 @@
                  ))
   )
 
-(use-package which-key
-  :custom
-  (which-key-idle-delay 2.0)
-  :config
-  (which-key-mode)
-  )
-
 (use-package symbol-overlay
-  :hook (prog-mode . symbol-overlay-mode))
+  :hook (TeX-mode . symbol-overlay-mode))

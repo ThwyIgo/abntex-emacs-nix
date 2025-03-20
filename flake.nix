@@ -17,9 +17,8 @@
           # Pacotes mínimos para C-c C-p C-b funcionar
           memoir xpatch booktabs textcase enumitem
           # Pacotes para fazer latexmk funcionar
-          breakurl xkeyval
+          latexmk breakurl xkeyval
           babel-portuges
-          latexmk
           microtype
           abntex2
         ;
