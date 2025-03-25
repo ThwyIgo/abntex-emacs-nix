@@ -10,6 +10,7 @@
     flake-utils.lib.eachDefaultSystem (system: let
       pkgs = import nixpkgs {
         inherit system;
+        config.allowUnfree = true;
       };
 
       tex = pkgs.texlive.combine {
@@ -21,6 +22,8 @@
           babel-portuges
           microtype
           abntex2
+          # Dependências do svg
+          svg xcolor transparent pgf catchfile
         ;
       };
     in {
@@ -30,8 +33,10 @@
         packages = [
           tex
           pkgs.ghostscript_headless
+          pkgs.inkscape # Necessário para \includesvg
 
           pkgs.poppler_utils # Procurar por texto no Preview-pane do Emacs
+          pkgs.drawio
 
           pkgs.zathura
           (pkgs.aspellWithDicts (dicts: with dicts; [ en pt_BR ]))
