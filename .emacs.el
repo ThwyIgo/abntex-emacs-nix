@@ -7,6 +7,8 @@
 (when (not package-archive-contents)
     (package-refresh-contents))
 
+(add-hook 'tex-mode-hook 'turn-on-auto-fill)
+
 (use-package auctex
   :custom
   (TeX-auto-save t)
