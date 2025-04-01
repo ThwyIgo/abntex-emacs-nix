@@ -1,0 +1,7 @@
+out/
+*.pdf
+*.log
+
+# Emacs
+auto/
+_region_.*

@@ -24,6 +24,8 @@
           abntex2
           # Dependências do svg
           svg xcolor transparent pgf catchfile
+          # Outras dependência para o template da facom compilar
+          cmap lastpage psfrag lipsum
         ;
       };
     in {
