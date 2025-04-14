@@ -7,7 +7,7 @@
 (when (not package-archive-contents)
     (package-refresh-contents))
 
-(add-hook 'tex-mode-hook 'turn-on-auto-fill)
+(add-hook 'TeX-mode-hook (lambda () (auto-fill-mode 1)))
 
 (use-package auctex
   :custom

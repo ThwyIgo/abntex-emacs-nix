@@ -29,7 +29,38 @@
         ;
       };
     in {
-      #packages.default = {};
+      packages.default = pkgs.stdenvNoCC.mkDerivation {
+        name = "TCC";
+        src = builtins.filterSource (path: type:
+          !(builtins.match ".*/out(/.*)?$" path != null) ||
+          !(builtins.match ".*/\\.git(/.*)?$" path != null)
+        )
+          ./.;
+
+        nativeBuildInputs = [
+          tex
+          pkgs.ghostscript_headless
+          pkgs.inkscape # Necessário para \includesvg
+        ];
+
+        buildPhase = ''
+          runHook preBuild
+
+          latexmk -auxdir=./out
+          latexmk -auxdir=./out -pdf
+
+          runHook postBuild
+        '';
+
+        installPhase = ''
+          runHook preInstall
+
+          mkdir -p $out/
+          cp ./*.pdf $out/
+
+          runHook postInstall
+        '';
+      };
 
       devShell = pkgs.mkShell {
         packages = [

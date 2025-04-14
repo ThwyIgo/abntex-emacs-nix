@@ -108,12 +108,14 @@
 \usepackage{cmap}				% Mapear caracteres especiais no PDF
 \usepackage{lmodern}			% Usa a fonte Latin Modern			
 \usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
-\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+%\usepackage[utf8]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
 \usepackage{lastpage}			% Usado pela Ficha catalográfica
 \usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
 \usepackage{color}				% Controle das cores
 \usepackage{graphicx}			% Inclusão de gráficos
-\usepackage{epsfig,psfrag} 
+\usepackage{epsfig,psfrag}
+\usepackage{amsmath}
+\usepackage{svg}
 % ---
 
 \usepackage{lipsum}				% para geração de dummy text
