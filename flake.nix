@@ -34,8 +34,7 @@
         src = builtins.filterSource (path: type:
           !(builtins.match ".*/out(/.*)?$" path != null) ||
           !(builtins.match ".*/\\.git(/.*)?$" path != null)
-        )
-          ./.;
+        ) ./.;
 
         nativeBuildInputs = [
           tex
@@ -46,8 +45,7 @@
         buildPhase = ''
           runHook preBuild
 
-          latexmk -auxdir=./out
-          latexmk -auxdir=./out -pdf
+          latexmk -auxdir=./out -pdf main.tex
 
           runHook postBuild
         '';
